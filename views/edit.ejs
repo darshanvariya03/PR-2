@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <form method="post" action="/editTask">
+            <input type="hidden" name="editId" value="<%= single.id %>"/>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Task</td>
+                        <td><input type="text" class="form-control" name="task" value="<%= single.task %>"></td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>
+                            <select class="form-select" name="status">
+                                <% st = ["default","pending","running","complete"] %>
+                                <% st.map((item) => { %>
+                                    <option <% if(single.status == item) { %> selected <% } %> value="<%= item %>"><%= item %></option>
+                                <% }) %>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" class="btn btn-primary" value="submit" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <table border="1" class="table table-hover">
+                <tr>
+                    <td>Task No.</td>
+                    <td>Task</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+
+                <% task.map((val,i)=>{i=i+1 %>
+                    <tr>
+                        <td><%= i %></td>
+                        <td><%= val.task %></td>
+                        <td><%= val.status %></td>
+                        <td>
+                            <a href="/editTask?id=<%= val.id %>" class="btn btn-primary">Edit</a>
+                            <a href="/deleteData?deleteId=<%= val.id %>" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </table>
+            <a href="/add" class="btn btn-primary">Add Task</a>
+        </div>
+    </div>
+</body>
+
+</html>
